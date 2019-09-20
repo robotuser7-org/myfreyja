@@ -1,5 +1,11 @@
 pipeline:
-  
+  install:
+    image: node:9.9.0
+    commands:
+      - npm install
+    secrets: [NPM_TOKEN]
+    when:
+      event: [push, tag]
   build:
     image: node:9.9.0
     commands:
